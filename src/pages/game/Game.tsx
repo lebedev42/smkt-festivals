@@ -16,7 +16,7 @@ const Game = () => {
   const { width, height } = useWindowSize();
   const { data } = useGame();
 
-  const [gameStarted, setGameStarted] = useState(true);
+  const [gameStarted, setGameStarted] = useState(false);
   const [gameFinished, setGameFinished] = useState(false);
 
   const [points, setPoints] = useState(0);
