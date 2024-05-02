@@ -48,7 +48,7 @@ export const Welcome: React.FC<WelcomeProps> = (props) => {
           как играть?
         </Styled.RulesLink>
         <Styled.Rules className={clsx({ open: rulesOpen })}>
-          <Styled.RulesTitle>Как играть?</Styled.RulesTitle>
+          <Styled.RulesTitle>Как играть</Styled.RulesTitle>
           <Styled.RulesText>{children}</Styled.RulesText>
         </Styled.Rules>
       </Styled.Container>

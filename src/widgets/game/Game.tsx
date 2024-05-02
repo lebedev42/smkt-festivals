@@ -1,6 +1,5 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { useWindowSize } from 'usehooks-ts';
-import clsx from 'clsx';
 
 import { useGame } from '../../entities/game';
 
@@ -10,22 +9,17 @@ import { GameCoordinator } from './api';
 
 import * as Styled from './Game.styled';
 
-export const Game: React.FC = () => {
-  const {
-    data,
-    updateGame,
-    updateStart,
-    updateRules,
-    updateGameOver,
-    updateResult,
-    updatePause,
-  } = useGame();
+interface GameProps {
+  handleGameFinished: (points: number) => void;
+}
+
+export const Game: React.FC<GameProps> = ({ handleGameFinished }) => {
+  const { data, updateGame, updateStart, updateGameOver } = useGame();
 
   // const { useSendGameResult } = useGameMutation();
 
   const { width = 0 } = useWindowSize();
 
-  const [positionTop, setPositionTop] = useState(0);
   const [containerHeight, setContainerHeight] = useState(0);
   const [containerWidth, setContainerWidth] = useState(0);
   const [zoomValue, setZoomValue] = useState(0);
@@ -36,7 +30,9 @@ export const Game: React.FC = () => {
 
     const points = Math.ceil(data.detail.points);
 
-    console.error('points', points);
+    handleGameFinished(points);
+
+    // console.error('points', points);
     // useSendGameResult(
     //   { points },
     //   {
@@ -73,42 +69,38 @@ export const Game: React.FC = () => {
       game?.startButtonClick();
     }
 
-    const positionTop = 0;
-
     // ширина контейнера - 475
     // при ширине контейнера в 475 - ширина поля игры - 398
     // при ширине контейнера в 475 - высота поля игры - 439
 
     const containerWidth = (width * 398) / 475;
     const containerHeight = (width * 439) / 475;
-    // const containerWidthPadding = (width * 15) / 475;
 
-    setPositionTop(positionTop);
     setContainerHeight(containerHeight);
     setContainerWidth(containerWidth);
 
     const zoomValue = containerWidth / 448;
-    // const zoomValue = (containerWidth - containerWidthPadding) / 448;
 
     setZoomValue(zoomValue);
   }, [width]);
 
   return (
     <Styled.Container id="game-container">
-      <Styled.TopBar width={containerWidth}>
-        <div id="extra-lives" className="extraLives"></div>
-        <div id="fps-display" className="fpsDisplay"></div>
-        <div className="pointsDisplay">
-          Счет: <span id="points-display">0</span>
-        </div>
-      </Styled.TopBar>
-
       <Styled.GameWrapper
         width={containerWidth}
         height={containerHeight}
         zoom={zoomValue}
       >
         <div id="game-ui" className="gameUi">
+          <Styled.TopBar>
+            <div id="extra-lives" className="extraLives"></div>
+            <div id="fps-display" className="fpsDisplay"></div>
+            <div className="pointsDisplay">
+              Cчёт:
+              <span id="points-display">0</span>
+            </div>
+          </Styled.TopBar>
+
           <div id="maze" className="maze">
             <img id="maze-img" className="maze-img" src="maze.svg" />
             <div id="maze-cover" className="maze-cover"></div>

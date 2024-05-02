@@ -5,7 +5,14 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 25px;
+  overflow: hidden;
+
+  @media (max-width: 475px) {
+    gap: 20px;
+  }
+  @media (max-width: 320px) {
+    gap: 15px;
+  }
 `;
 
 export const Container = styled.div<{ type: string; height: number }>`
@@ -19,14 +26,20 @@ export const Container = styled.div<{ type: string; height: number }>`
   background-position: center;
   background-repeat: no-repeat;
 
-  border-radius: 41px;
-  overflow: hidden;
+  border-radius: 40px;
 
   width: 100%;
   height: ${(props) => props.height}px;
 
   background-image: ${(props) =>
     props.type === 'festival' ? 'url(/festivalsBg.svg)' : 'url(/trackBg.svg)'};
+
+  @media (max-width: 475px) {
+    border-radius: 40px;
+  }
+  @media (max-width: 380px) {
+    border-radius: 30px;
+  }
 `;
 
 export const RulesBackdrop = styled.div`
@@ -46,6 +59,13 @@ export const RulesBackdrop = styled.div`
   &.active {
     display: block;
   }
+
+  @media (max-width: 475px) {
+    border-radius: 40px;
+  }
+  @media (max-width: 380px) {
+    border-radius: 30px 30px 0 0;
+  }
 `;
 
 export const CloseBtn = styled.div`
@@ -60,14 +80,15 @@ export const RulesLink = styled.div`
   left: 50%;
   transform: translateX(-50%);
 
-  font-family: 'Euclid';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 27.2564px;
-  line-height: 35px;
   display: flex;
   align-items: center;
   text-align: center;
+
+  font-family: 'Euclid';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 27px;
+
   color: #ffffff;
 
   &::after {
@@ -82,6 +103,13 @@ export const RulesLink = styled.div`
 
   &:hover {
     cursor: pointer;
+  }
+
+  @media (max-width: 475px) {
+    font-size: 22px;
+  }
+  @media (max-width: 380px) {
+    font-size: 18px;
   }
 `;
 
@@ -101,13 +129,21 @@ export const Rules = styled.div`
   height: 272px;
 
   background: #ffffff;
-  border-radius: 41px;
+  border-radius: 40px;
   transition: all 0.2s ease-out;
 
   &.open {
     bottom: -1px;
     opacity: 1;
     transition: all 0.2s ease-out;
+  }
+
+  @media (max-width: 475px) {
+    border-radius: 40px;
+  }
+  @media (max-width: 380px) {
+    height: 220px;
+    border-radius: 30px 30px 0 0;
   }
 `;
 
@@ -117,14 +153,24 @@ export const RulesTitle = styled.div`
   align-items: center;
   justify-content: center;
 
-  margin: 39px 38px;
+  margin: 38px;
 
   font-family: 'Euclid';
   font-style: normal;
   font-weight: 500;
   font-size: 36px;
-  line-height: 46px;
   color: #171717;
+
+  @media (max-width: 475px) {
+    font-size: 30px;
+    margin: 20px;
+  }
+  @media (max-width: 380px) {
+    font-size: 22px;
+  }
+  @media (max-width: 320px) {
+    margin: 15px;
+  }
 `;
 
 export const RulesText = styled.div`
@@ -132,14 +178,23 @@ export const RulesText = styled.div`
   font-style: normal;
   font-weight: 400;
   font-size: 22px;
-  line-height: 28px;
   text-align: center;
   color: #171717;
-
-  margin-bottom: 32px;
 
   p {
     margin: 0;
     padding: 0;
+  }
+
+  @media (max-width: 475px) {
+    font-size: 18px;
+    padding: 0 24px;
+  }
+  @media (max-width: 380px) {
+    font-size: 15px;
+    padding: 0 15px;
+  }
+  @media (max-width: 320px) {
+    font-size: 14px;
   }
 `;

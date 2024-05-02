@@ -13,12 +13,12 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-export const TopBar = styled.div<{ width: number }>`
+export const TopBar = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: ${({ width }) => width}px;
-  margin-bottom: 30px;
+  width: 100%;
+  margin: 15px 0;
 
   .fpsDisplay {
     display: none;
@@ -47,6 +47,10 @@ export const TopBar = styled.div<{ width: number }>`
     text-align: right;
 
     color: #ffffff;
+
+    span {
+      padding-left: 5px;
+    }
   }
 
   .extraLives {
@@ -69,7 +73,11 @@ export const GameWrapper = styled.div<{
 }>`
   width: ${({ width }) => width || 638}px;
   height: ${({ height }) => height || 718}px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+
+  @media (max-width: 360px) {
+    margin-bottom: 30px;
+  }
 
   display: flex;
   justify-content: center;
@@ -83,7 +91,7 @@ export const GameWrapper = styled.div<{
 
   .gameUi {
     transform: ${({ zoom }) => `scale(${zoom})` || 'scale(1)'};
-    z-index: 99;
+    z-index: 10;
 
     &.disabled {
       display: none;
@@ -154,10 +162,17 @@ export const MovementButtons = styled.div`
 
   .row {
     display: flex;
-    gap: 24px;
+
     align-items: center;
     justify-content: center;
+
+    gap: 20px;
     margin-bottom: 24px;
+
+    @media (max-width: 360px) {
+      gap: 10px;
+      margin-bottom: 10px;
+    }
   }
 
   .btn {
@@ -180,6 +195,11 @@ export const MovementButtons = styled.div`
     }
     &.button-right {
       background-image: url('/rightBtn.svg');
+    }
+
+    @media (max-width: 360px) {
+      width: 62px;
+      height: 62px;
     }
   }
 `;
