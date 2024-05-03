@@ -549,7 +549,7 @@ export class GameCoordinator {
             type = 'powerA';
           }
 
-          const points = block === 'o' ? 0.5 : 2; // за точку и продукт
+          const points = block === 'o' ? 1 : 5; // за точку и продукт
           const dot = new Pickup(
             type,
             this.scaledTileSize,
@@ -562,7 +562,7 @@ export class GameCoordinator {
 
           entityList.push(dot);
           this.pickups.push(dot);
-          this.remainingDots += 1;
+          this.remainingDots += 1; // 250
         }
       });
     });
@@ -933,7 +933,7 @@ export class GameCoordinator {
     window.dispatchEvent(
       new CustomEvent('awardPoints', {
         detail: {
-          points: 4, // очки за монстра
+          points: 10, // очки за монстра
         },
       }),
     );

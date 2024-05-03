@@ -167,7 +167,7 @@ export const Festival: React.FC<FestivalProps> = (props) => {
         (stage) => stage.correctPersonId === stage.selectedPerson?.id,
       ).length;
 
-      setResults(correctAmount === 5 ? 'win' : 'loose');
+      setResults(correctAmount === 4 ? 'win' : 'loose');
     }
   }, [persons]);
 
