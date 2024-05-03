@@ -9,4 +9,5 @@ export const Container = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
+  outline: none;
 `;

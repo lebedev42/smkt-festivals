@@ -834,9 +834,9 @@ export class GameCoordinator {
   dotEaten() {
     this.remainingDots -= 1;
 
-    if (this.remainingDots === 230) {
-      this.gameOver(); // for test game over
-    }
+    // if (this.remainingDots === 230) {
+    //   this.gameOver(); // for test game over
+    // }
 
     if (this.remainingDots === 20) {
       // this.speedUpBlinky();

@@ -178,6 +178,7 @@ export const MovementButtons = styled.div`
   .btn {
     border: none;
     background-color: transparent;
+    outline: none;
 
     width: 86px;
     height: 86px;
