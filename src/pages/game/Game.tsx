@@ -63,7 +63,7 @@ const Game = () => {
               )}
             </Styled.ResultDescription>
             <Styled.ResultActions>
-              {points > 200 ? (
+              {points >= 150 ? (
                 <Btn label="В чат-бот" onClick={handleStartGame} type="red" />
               ) : (
                 <>
