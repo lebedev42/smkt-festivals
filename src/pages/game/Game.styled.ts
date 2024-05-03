@@ -82,13 +82,16 @@ export const Results = styled.div`
 
   background: #ffffff;
   border-radius: 40px;
-  transition: all 0.2s ease-out;
+  transition: bottom 0.5s ease-out;
+
+  display: none;
 
   &.active {
+    display: flex;
     bottom: -1px;
     opacity: 1;
     z-index: 99;
-    transition: all 0.2s ease-out;
+    transition: bottom 0.5s ease-out;
   }
 
   @media (max-width: 475px) {

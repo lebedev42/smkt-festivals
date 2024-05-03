@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import { useGame } from '../../entities/game';
 import { Welcome } from '../../widgets/welcome';
 
-import { useWindowSize } from '@uidotdev/usehooks';
 import { Game as GameWidget } from '../../widgets/game';
 import { BtnClose } from '../../shared/ui/btn-close';
 
@@ -13,7 +12,6 @@ import { Btn } from '../../shared/ui/btn';
 import * as Styled from './Game.styled';
 
 const Game = () => {
-  const { width, height } = useWindowSize();
   const { data } = useGame();
 
   const [gameStarted, setGameStarted] = useState(false);
@@ -96,9 +94,6 @@ const Game = () => {
           </p>
         </Welcome>
       )}
-      <Styled.Size>
-        {width} {height}
-      </Styled.Size>
     </Styled.Content>
   );
 };
