@@ -1,4 +1,5 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import queryString from 'query-string';
 import { useWindowSize } from 'usehooks-ts';
 import clsx from 'clsx';
 
@@ -11,8 +12,9 @@ import { Person as PersonComponent } from '../../shared/ui/person';
 import { Btn } from '../../shared/ui/btn';
 import { Stage, Person } from '../../pages/festival/Festival';
 
-import * as Styled from './Festival.styled';
+import { useFestivalMutation } from '../../entities/festival/api';
 
+import * as Styled from './Festival.styled';
 interface FestivalProps {
   stages: Stage[];
   persons: Person[] | null;
@@ -23,6 +25,8 @@ interface FestivalProps {
 
 export const Festival: React.FC<FestivalProps> = (props) => {
   const { stages, persons, setPersons, setStages, onReset } = props;
+
+  const { useSendFestivalResult } = useFestivalMutation();
 
   const { width = 0 } = useWindowSize();
   const flicking = useRef<Flicking | null>(null);
@@ -155,10 +159,41 @@ export const Festival: React.FC<FestivalProps> = (props) => {
 
   const handleCloseGame = () => {
     console.log('close game');
+
+    if (window.Telegram) {
+      window.Telegram.WebApp.close();
+    }
   };
 
   const handleQuit = () => {
     console.log('quit game');
+
+    const resultData = {
+      user: '',
+      result: results === 'win',
+    };
+
+    const parsed = queryString.parse(location.search);
+
+    if (parsed?.user) {
+      const user = Array.isArray(parsed.user) ? parsed.user[0] : parsed.user;
+
+      if (user) {
+        resultData.user = user;
+      }
+    }
+
+    console.error('resultData', resultData);
+
+    useSendFestivalResult(resultData, {
+      onSuccess: (response: any) => {
+        console.error('response', response);
+
+        if (window.Telegram) {
+          window.Telegram.WebApp.close();
+        }
+      },
+    });
   };
 
   useEffect(() => {

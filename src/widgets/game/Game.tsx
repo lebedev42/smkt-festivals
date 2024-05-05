@@ -1,10 +1,11 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { useWindowSize } from 'usehooks-ts';
+import queryString from 'query-string';
 
 import { useGame } from '../../entities/game';
 
 import { useGameMutation } from '../../entities/game/api';
-import { GameResultResponse } from '../../entities/game/api/types';
+
 import { GameCoordinator } from './api';
 
 import * as Styled from './Game.styled';
@@ -16,7 +17,7 @@ interface GameProps {
 export const Game: React.FC<GameProps> = ({ handleGameFinished }) => {
   const { data, updateGame, updateStart, updateGameOver } = useGame();
 
-  // const { useSendGameResult } = useGameMutation();
+  const { useSendGameResult } = useGameMutation();
 
   const { width = 0 } = useWindowSize();
 
@@ -30,20 +31,34 @@ export const Game: React.FC<GameProps> = ({ handleGameFinished }) => {
 
     const points = Math.ceil(data.detail.points);
 
+    const resultData = {
+      user: '',
+      result: points >= 150,
+    };
+
+    const parsed = queryString.parse(location.search);
+
+    if (parsed?.user) {
+      const user = Array.isArray(parsed.user) ? parsed.user[0] : parsed.user;
+
+      if (user) {
+        resultData.user = user;
+      }
+    }
+
     handleGameFinished(points);
 
-    // console.error('points', points);
-    // useSendGameResult(
-    //   { points },
-    //   {
-    //     onSuccess: (response: GameResultResponse) => {
-    //       updateResult({
-    //         discount: response.discount,
-    //         product: response.product,
-    //       });
-    //     },
-    //   },
-    // );
+    console.error('resultData', resultData);
+
+    useSendGameResult(resultData, {
+      onSuccess: (response: any) => {
+        console.error('response', response);
+
+        if (window.Telegram) {
+          window.Telegram.WebApp.close();
+        }
+      },
+    });
   };
 
   const removeEventListener = () => {

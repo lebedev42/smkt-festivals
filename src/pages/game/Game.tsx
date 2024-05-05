@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 
 import { useGame } from '../../entities/game';
@@ -14,6 +14,10 @@ import * as Styled from './Game.styled';
 const Game = () => {
   const { data } = useGame();
 
+  useEffect(() => {
+    window.Telegram.WebApp.expand();
+  }, []);
+
   const [gameStarted, setGameStarted] = useState(false);
   const [gameFinished, setGameFinished] = useState(false);
 
@@ -21,6 +25,10 @@ const Game = () => {
 
   const handleCloseGame = () => {
     setGameStarted(false);
+
+    if (window.Telegram) {
+      window.Telegram.WebApp.close();
+    }
   };
 
   const handleStartGame = () => {
@@ -64,7 +72,7 @@ const Game = () => {
             </Styled.ResultDescription>
             <Styled.ResultActions>
               {points >= 150 ? (
-                <Btn label="В чат-бот" onClick={handleStartGame} type="red" />
+                <Btn label="В чат-бот" onClick={handleCloseGame} type="red" />
               ) : (
                 <>
                   <Btn
@@ -74,7 +82,7 @@ const Game = () => {
                   />
                   <Btn
                     label="В чат-бот"
-                    onClick={handleStartGame}
+                    onClick={handleCloseGame}
                     type="white"
                   />
                 </>

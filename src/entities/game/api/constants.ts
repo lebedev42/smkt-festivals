@@ -1,5 +1,5 @@
 export const urls = {
-  sendGameResult: '/api/userPoints',
+  sendGameResult: 'https://stomach.site/api/game-results',
 };
 
 export const queryKeys = {

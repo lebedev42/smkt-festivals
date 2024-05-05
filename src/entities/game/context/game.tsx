@@ -8,7 +8,6 @@ import {
   useState,
 } from 'react';
 
-import { GameResultResponse } from '../api/types';
 import { GameCoordinator } from '../../../widgets/game/api';
 
 interface GameContext {
@@ -16,7 +15,7 @@ interface GameContext {
   gameStarted: boolean;
   gameOver: boolean;
   rules: boolean;
-  result: GameResultResponse | null;
+  result: any;
   paused: boolean;
   firstStart: boolean;
 }

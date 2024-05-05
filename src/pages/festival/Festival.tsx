@@ -174,6 +174,10 @@ const Festival = () => {
   const [reset, setReset] = useState(true);
 
   useEffect(() => {
+    window.Telegram.WebApp.expand();
+  }, []);
+
+  useEffect(() => {
     if (reset) {
       setPersons([...initialPersons]);
       setStages([...initialStages]);

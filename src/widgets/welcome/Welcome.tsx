@@ -29,12 +29,13 @@ export const Welcome: React.FC<WelcomeProps> = (props) => {
   const [rulesOpen, setRulesOpen] = useState(false);
 
   const handleStartGame = () => {
-    console.error('');
     onClick();
   };
 
   const handleCloseGame = () => {
-    console.error('');
+    if (window.Telegram) {
+      window.Telegram.WebApp.close();
+    }
   };
 
   return (
