@@ -598,7 +598,7 @@ export class GameCoordinator {
     this.allowPacmanMovement = false;
 
     // delay before start
-    const duration = 300;
+    const duration = 1000;
 
     this.updateExtraLivesDisplay();
 

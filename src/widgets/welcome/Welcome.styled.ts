@@ -22,7 +22,7 @@ export const Container = styled.div<{ type: string; height: number }>`
   justify-content: center;
   position: relative;
 
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 
