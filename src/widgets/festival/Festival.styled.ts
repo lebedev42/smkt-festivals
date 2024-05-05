@@ -69,7 +69,11 @@ export const Container = styled.div<{
   justify-content: center;
   flex-direction: column;
 
-  background-size: cover;
+  @media (max-width: 320px) {
+    height: 550px;
+  }
+
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   background-image: ${({ selectedStage }) => {
@@ -103,7 +107,10 @@ export const Stages = styled.div`
   width: 100%;
 
   @media (max-width: 380px) {
-    top: 134px;
+    top: 130px;
+  }
+  @media (max-width: 320px) {
+    top: 160px;
   }
 `;
 
@@ -118,6 +125,9 @@ export const StageItem = styled.div`
 
   @media (max-width: 381px) {
     height: 115px;
+  }
+  @media (max-width: 320px) {
+    height: 100px;
   }
 `;
 
@@ -155,9 +165,13 @@ export const Persons = styled.div`
 
   .flicking-camera {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-auto-flow: column;
     gap: 10px;
+  }
+
+  @media (max-width: 320px) {
+    padding: 0 10px;
   }
 `;
 

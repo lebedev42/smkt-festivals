@@ -53,7 +53,10 @@ const Game = () => {
           <Styled.CloseBtn>
             <BtnClose onClick={handleCloseGame} />
           </Styled.CloseBtn>
-          <GameWidget handleGameFinished={handleGameFinished} />
+          <GameWidget
+            handleGameFinished={handleGameFinished}
+            isTopbar={!gameFinished}
+          />
           <Styled.Results className={clsx({ active: gameFinished })}>
             <Styled.ResultTitle>
               Ваш счёт: <span>{points}</span>

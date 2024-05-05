@@ -9,12 +9,14 @@ import { useGameMutation } from '../../entities/game/api';
 import { GameCoordinator } from './api';
 
 import * as Styled from './Game.styled';
+import clsx from 'clsx';
 
 interface GameProps {
+  isTopbar: boolean;
   handleGameFinished: (points: number) => void;
 }
 
-export const Game: React.FC<GameProps> = ({ handleGameFinished }) => {
+export const Game: React.FC<GameProps> = ({ isTopbar, handleGameFinished }) => {
   const { data, updateGame, updateStart, updateGameOver } = useGame();
 
   const { useSendGameResult } = useGameMutation();
@@ -107,7 +109,7 @@ export const Game: React.FC<GameProps> = ({ handleGameFinished }) => {
         zoom={zoomValue}
       >
         <div id="game-ui" className="gameUi">
-          <Styled.TopBar>
+          <Styled.TopBar className={clsx({ active: isTopbar })}>
             <div id="extra-lives" className="extraLives"></div>
             <div id="fps-display" className="fpsDisplay"></div>
             <div className="pointsDisplay">

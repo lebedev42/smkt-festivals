@@ -19,6 +19,11 @@ export const TopBar = styled.div`
   justify-content: space-between;
   width: 100%;
   margin: 15px 0;
+  opacity: 0;
+
+  &.active {
+    opacity: 1;
+  }
 
   .fpsDisplay {
     display: none;

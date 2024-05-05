@@ -313,8 +313,8 @@ export const Festival: React.FC<FestivalProps> = (props) => {
         {persons && (
           <Flicking
             align="prev"
-            bound={true}
-            circular={true}
+            bound={false}
+            circular={false}
             className="flickingScroll"
             ref={flicking}
             useFindDOMNode={true}
