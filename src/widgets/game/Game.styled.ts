@@ -164,6 +164,7 @@ export const MovementButtons = styled.div`
   justify-content: center;
   flex-direction: column;
   width: 100%;
+  z-index: 999;
 
   .row {
     display: flex;
