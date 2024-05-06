@@ -361,7 +361,7 @@ export const Festival: React.FC<FestivalProps> = (props) => {
 
       {results && (
         <Styled.Results>
-          <Styled.ResultTitle>Игра завершена!</Styled.ResultTitle>
+          <Styled.ResultTitle>Игра завершена</Styled.ResultTitle>
           <Styled.ResultDescription>
             {results === 'win' ? (
               <p>

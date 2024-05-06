@@ -12,7 +12,7 @@ export const GameWrapper = styled.div`
   background: #ff335f;
   border-radius: 40px;
 
-  padding: 80px 0 0;
+  padding: 60px 0 0;
 
   @media (max-width: 475px) {
     border-radius: 40px;
@@ -24,8 +24,8 @@ export const GameWrapper = styled.div`
 
 export const CloseBtn = styled.div`
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
 `;
 
 export const Size = styled.div`

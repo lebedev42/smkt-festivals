@@ -172,25 +172,20 @@ export const MovementButtons = styled.div`
     align-items: center;
     justify-content: center;
 
-    gap: 20px;
-    margin-bottom: 24px;
-
-    @media (max-width: 360px) {
-      gap: 10px;
-      margin-bottom: 10px;
-    }
+    gap: 10px;
+    margin-bottom: 10px;
   }
 
   .btn {
     border: none;
     background-color: transparent;
-
-    width: 86px;
-    height: 86px;
     background-repeat: no-repeat;
     background-size: contain;
 
     cursor: pointer;
+
+    width: 54px;
+    height: 54px;
 
     &.button-up {
       background-image: url('/upBtn.svg');
@@ -203,11 +198,6 @@ export const MovementButtons = styled.div`
     }
     &.button-right {
       background-image: url('/rightBtn.svg');
-    }
-
-    @media (max-width: 360px) {
-      width: 62px;
-      height: 62px;
     }
 
     outline: 0;

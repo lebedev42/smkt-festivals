@@ -19,8 +19,8 @@ export const Wrapper = styled.div<{ isSelected: boolean }>`
 
 export const CloseBtn = styled.div`
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
   z-index: 99;
 `;
 

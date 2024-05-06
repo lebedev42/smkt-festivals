@@ -73,8 +73,8 @@ export const RulesBackdrop = styled.div`
 
 export const CloseBtn = styled.div`
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
 `;
 
 export const RulesLink = styled.div`
