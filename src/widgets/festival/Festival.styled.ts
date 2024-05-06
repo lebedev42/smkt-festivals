@@ -74,10 +74,10 @@ export const Container = styled.div<{
   }
 
   height: 100vh;
-  background-size: cover;
+  /* background-size: cover; */
 
-  /* background-size: contain; */
-  background-position: center;
+  background-size: contain;
+  background-position: top;
   background-repeat: no-repeat;
   background-image: ${({ selectedStage }) => {
     switch (selectedStage) {
@@ -103,18 +103,18 @@ export const Container = styled.div<{
   }};
 `;
 
-export const Stages = styled.div`
+export const Stages = styled.div<{ positionTop: number }>`
   position: absolute;
-  top: 170px;
+  top: ${({ positionTop }) => positionTop}px;
   left: 0;
   width: 100%;
 
-  @media (max-width: 380px) {
+  /* @media (max-width: 380px) {
     top: 130px;
   }
   @media (max-width: 320px) {
     top: 160px;
-  }
+  } */
 `;
 
 export const StageRow = styled.div`
@@ -122,16 +122,16 @@ export const StageRow = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
 `;
 
-export const StageItem = styled.div`
+export const StageItem = styled.div<{ height: number }>`
   width: 100%;
-  height: 150px;
+  height: ${({ height }) => height}px;
 
-  @media (max-width: 381px) {
+  /* @media (max-width: 381px) {
     height: 115px;
   }
   @media (max-width: 320px) {
     height: 100px;
-  }
+  } */
 `;
 
 export const Persons = styled.div`

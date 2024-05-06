@@ -206,9 +206,6 @@ const Festival = () => {
           героями и отправьте его на соответствующую площадку, нажав «Выбрать»
         </Welcome>
       )}
-      <Styled.Size>
-        {width} {height}
-      </Styled.Size>
     </Styled.Content>
   );
 };

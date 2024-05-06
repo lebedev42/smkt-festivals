@@ -48,10 +48,19 @@ export const Festival: React.FC<FestivalProps> = (props) => {
     description: string;
   } | null>(null);
 
+  const [positionTop, setPositionTop] = useState(0);
+  const [stageHeight, setStageHeight] = useState(0);
+
   useLayoutEffect(() => {
     // ширина контейнера - 475
     // при ширине контейнера в 475 - ширина поля игры - 475
     // при ширине контейнера в 475 - высота поля игры - 734
+
+    const positionTop = (width * 100) / 320;
+    const stageHeight = (width * 90) / 320;
+
+    setPositionTop(positionTop);
+    setStageHeight(stageHeight);
 
     const containerWidth = (width * 475) / 475;
     const containerHeight = (width * 734) / 475;
@@ -238,9 +247,9 @@ export const Festival: React.FC<FestivalProps> = (props) => {
         ref={containerRef}
       >
         {stages.length && (
-          <Styled.Stages>
+          <Styled.Stages positionTop={positionTop}>
             <Styled.StageRow>
-              <Styled.StageItem id="stage-5">
+              <Styled.StageItem id="stage-5" height={stageHeight}>
                 {stages[4].selectedPerson && (
                   <PersonComponent
                     person={stages[4].selectedPerson}
@@ -248,7 +257,7 @@ export const Festival: React.FC<FestivalProps> = (props) => {
                   />
                 )}
               </Styled.StageItem>
-              <Styled.StageItem id="stage-6">
+              <Styled.StageItem id="stage-6" height={stageHeight}>
                 {stages[5].selectedPerson && (
                   <PersonComponent
                     person={stages[5].selectedPerson}
@@ -256,7 +265,7 @@ export const Festival: React.FC<FestivalProps> = (props) => {
                   />
                 )}
               </Styled.StageItem>
-              <Styled.StageItem id="stage-7">
+              <Styled.StageItem id="stage-7" height={stageHeight}>
                 {stages[6].selectedPerson && (
                   <PersonComponent
                     person={stages[6].selectedPerson}
@@ -266,7 +275,7 @@ export const Festival: React.FC<FestivalProps> = (props) => {
               </Styled.StageItem>
             </Styled.StageRow>
             <Styled.StageRow>
-              <Styled.StageItem id="stage-2">
+              <Styled.StageItem id="stage-2" height={stageHeight}>
                 {stages[1].selectedPerson && (
                   <PersonComponent
                     person={stages[1].selectedPerson}
@@ -274,7 +283,7 @@ export const Festival: React.FC<FestivalProps> = (props) => {
                   />
                 )}
               </Styled.StageItem>
-              <Styled.StageItem id="stage-4">
+              <Styled.StageItem id="stage-4" height={stageHeight}>
                 {stages[3].selectedPerson && (
                   <PersonComponent
                     person={stages[3].selectedPerson}
@@ -282,10 +291,10 @@ export const Festival: React.FC<FestivalProps> = (props) => {
                   />
                 )}
               </Styled.StageItem>
-              <Styled.StageItem></Styled.StageItem>
+              <Styled.StageItem height={stageHeight}></Styled.StageItem>
             </Styled.StageRow>
             <Styled.StageRow>
-              <Styled.StageItem id="stage-1">
+              <Styled.StageItem id="stage-1" height={stageHeight}>
                 {stages[0].selectedPerson && (
                   <PersonComponent
                     person={stages[0].selectedPerson}
@@ -293,8 +302,8 @@ export const Festival: React.FC<FestivalProps> = (props) => {
                   />
                 )}
               </Styled.StageItem>
-              <Styled.StageItem></Styled.StageItem>
-              <Styled.StageItem id="stage-3">
+              <Styled.StageItem height={stageHeight}></Styled.StageItem>
+              <Styled.StageItem id="stage-3" height={stageHeight}>
                 {stages[2].selectedPerson && (
                   <PersonComponent
                     person={stages[2].selectedPerson}
