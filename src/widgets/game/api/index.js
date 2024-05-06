@@ -698,7 +698,7 @@ export class GameCoordinator {
     directions.forEach((direction) => {
       document
         .getElementById(`button-${direction}`)
-        .addEventListener('touchstart', () => {
+        .addEventListener('click', () => {
           this.changeDirection(direction);
         });
     });

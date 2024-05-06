@@ -191,6 +191,8 @@ export const MovementButtons = styled.div`
     background-repeat: no-repeat;
     background-size: contain;
 
+    cursor: pointer;
+
     &.button-up {
       background-image: url('/upBtn.svg');
     }
