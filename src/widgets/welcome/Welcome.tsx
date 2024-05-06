@@ -46,7 +46,7 @@ export const Welcome: React.FC<WelcomeProps> = (props) => {
           <BtnClose onClick={handleCloseGame} />
         </Styled.CloseBtn>
         <Styled.RulesLink onClick={() => setRulesOpen(true)}>
-          как играть?
+          Как играть
         </Styled.RulesLink>
         <Styled.Rules className={clsx({ open: rulesOpen })}>
           <Styled.RulesTitle>Как играть</Styled.RulesTitle>
@@ -55,7 +55,7 @@ export const Welcome: React.FC<WelcomeProps> = (props) => {
       </Styled.Container>
       {rulesOpen ? (
         <Btn
-          label="Все понятно"
+          label="Всё понятно"
           onClick={() => setRulesOpen(false)}
           type="red"
         />

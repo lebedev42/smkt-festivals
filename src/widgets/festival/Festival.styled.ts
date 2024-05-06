@@ -62,7 +62,7 @@ export const Container = styled.div<{
   top: 0;
   left: 0;
   width: 100%;
-  height: ${({ height }) => height}px;
+  /* height: ${({ height }) => height}px; */
 
   display: flex;
   align-items: center;
@@ -73,7 +73,10 @@ export const Container = styled.div<{
     height: 550px;
   }
 
-  background-size: contain;
+  height: 100vh;
+  background-size: cover;
+
+  /* background-size: contain; */
   background-position: center;
   background-repeat: no-repeat;
   background-image: ${({ selectedStage }) => {

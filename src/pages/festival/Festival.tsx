@@ -5,6 +5,7 @@ import { Welcome } from '../../widgets/welcome';
 import { Festival as FestivalGame } from '../../widgets/festival';
 
 import * as Styled from './Festival.styled';
+import { useWindowSize } from '@uidotdev/usehooks';
 
 export interface Stage {
   id: number;
@@ -164,6 +165,8 @@ const initialPersons: Person[] = [
 const Festival = () => {
   const [gameStarted, setGameStarted] = useState(false);
 
+  const { width, height } = useWindowSize();
+
   const handleStartGame = () => {
     setGameStarted(true);
   };
@@ -200,9 +203,12 @@ const Festival = () => {
         <Welcome type="festival" onClick={handleStartGame}>
           Каждый из персонажей хочет зайти в определённый павильон. Чтобы им
           помочь, сначала выберете павильон, а затем познакомьтесь со всеми
-          героями и отправьте его на соответсвующую площадку, нажав «выбрать»
+          героями и отправьте его на соответствующую площадку, нажав «Выбрать»
         </Welcome>
       )}
+      <Styled.Size>
+        {width} {height}
+      </Styled.Size>
     </Styled.Content>
   );
 };

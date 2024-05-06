@@ -53,14 +53,7 @@ export const Btn = styled.button<{
     cursor: not-allowed;
   }
 
-  @media (max-width: 475px) {
-    font-size: 20px;
-    padding: 15px 40px;
-    border-radius: 40px;
-  }
-  @media (max-width: 380px) {
-    font-size: 16px;
-    padding: 10px 30px;
-    border-radius: 30px;
-  }
+  font-size: 16px;
+  padding: 10px 30px;
+  border-radius: 30px;
 `;

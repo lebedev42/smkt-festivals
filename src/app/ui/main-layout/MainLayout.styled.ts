@@ -5,12 +5,5 @@ export const Container = styled.div`
   position: relative;
   flex-direction: column;
   background-color: #ffffff;
-  padding: 18px;
-
-  @media (max-width: 475px) {
-    padding: 10px;
-  }
-  @media (max-width: 360px) {
-    padding: 5px;
-  }
+  padding: 5px;
 `;
