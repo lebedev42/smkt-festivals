@@ -42,9 +42,9 @@ export const Welcome: React.FC<WelcomeProps> = (props) => {
     <Styled.Wrapper>
       <Styled.Container type={type} height={containerHeight}>
         <Styled.RulesBackdrop className={clsx({ active: rulesOpen })} />
-        <Styled.CloseBtn>
+        {/* <Styled.CloseBtn>
           <BtnClose onClick={handleCloseGame} />
-        </Styled.CloseBtn>
+        </Styled.CloseBtn> */}
         <Styled.RulesLink onClick={() => setRulesOpen(true)}>
           Как играть
         </Styled.RulesLink>

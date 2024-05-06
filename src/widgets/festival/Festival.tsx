@@ -28,6 +28,11 @@ export const Festival: React.FC<FestivalProps> = (props) => {
   const { stages, persons, setPersons, setStages, onReset } = props;
 
   const { isVisible, showModal, hideModal } = useModal();
+  const {
+    isVisible: isConfirmModal,
+    showModal: showConfirmModal,
+    hideModal: hideConfirmModal,
+  } = useModal();
 
   const { useSendFestivalResult } = useFestivalMutation();
 
@@ -170,11 +175,7 @@ export const Festival: React.FC<FestivalProps> = (props) => {
   };
 
   const handleCloseGame = () => {
-    console.log('close game');
-
-    if (window.Telegram) {
-      window.Telegram.WebApp.close();
-    }
+    showConfirmModal();
   };
 
   const handleQuit = () => {
@@ -208,6 +209,14 @@ export const Festival: React.FC<FestivalProps> = (props) => {
     });
   };
 
+  const handleQuitConfirm = () => {
+    hideConfirmModal();
+
+    if (window.Telegram) {
+      window.Telegram.WebApp.close();
+    }
+  };
+
   useEffect(() => {
     if (persons && persons.length === 0) {
       const correctAmount = stages.filter(
@@ -231,6 +240,30 @@ export const Festival: React.FC<FestivalProps> = (props) => {
           </Styled.ModalText>
           <Styled.ModalActions>
             <Btn label="Понятно" onClick={hideModal} type="red" size="small" />
+          </Styled.ModalActions>
+        </Styled.ModalContent>
+      </Modal>
+
+      <Modal isVisible={isConfirmModal} hideModal={hideConfirmModal}>
+        <Styled.ModalContent>
+          <Styled.ModalText>
+            Вы точно хотите уйти?
+            <br />
+            Ваш прогресс будет утерян
+          </Styled.ModalText>
+          <Styled.ModalActions>
+            <Btn
+              label="Нет"
+              onClick={hideConfirmModal}
+              type="red"
+              size="small"
+            />
+            <Btn
+              label="Да"
+              onClick={handleQuitConfirm}
+              type="white"
+              size="small"
+            />
           </Styled.ModalActions>
         </Styled.ModalContent>
       </Modal>

@@ -43,7 +43,6 @@ export const Body = styled.div`
   gap: 8px;
 
   width: 300px;
-  /* height: 150px; */
 
   background: #fff;
   border-radius: 12px;
@@ -51,11 +50,5 @@ export const Body = styled.div`
 `;
 
 export const Content = styled.div`
-  font-family: 'Euclid';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 25px;
-
-  color: #000000;
+  width: 100%;
 `;

@@ -12,7 +12,7 @@ export const GameWrapper = styled.div`
   background: #ff335f;
   border-radius: 40px;
 
-  padding: 60px 0 0;
+  padding: 50px 0 10px;
 
   @media (max-width: 475px) {
     border-radius: 40px;

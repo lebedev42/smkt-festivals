@@ -50,9 +50,9 @@ const Game = () => {
       {gameStarted ? (
         <Styled.GameWrapper>
           <Styled.ResultsBackdrop className={clsx({ active: gameFinished })} />
-          <Styled.CloseBtn>
+          {/* <Styled.CloseBtn>
             <BtnClose onClick={handleCloseGame} />
-          </Styled.CloseBtn>
+          </Styled.CloseBtn> */}
           <GameWidget
             handleGameFinished={handleGameFinished}
             isTopbar={!gameFinished}
