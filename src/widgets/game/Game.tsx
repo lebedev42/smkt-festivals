@@ -50,15 +50,9 @@ export const Game: React.FC<GameProps> = ({ isTopbar, handleGameFinished }) => {
 
     handleGameFinished(points);
 
-    console.error('resultData', resultData);
-
     useSendGameResult(resultData, {
       onSuccess: (response: any) => {
         console.error('response', response);
-
-        if (window.Telegram) {
-          window.Telegram.WebApp.close();
-        }
       },
     });
   };
