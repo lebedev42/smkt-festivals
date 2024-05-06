@@ -184,7 +184,6 @@ export const MovementButtons = styled.div`
   .btn {
     border: none;
     background-color: transparent;
-    outline: none;
 
     width: 86px;
     height: 86px;
@@ -210,5 +209,9 @@ export const MovementButtons = styled.div`
       width: 62px;
       height: 62px;
     }
+
+    outline: 0;
+    box-shadow: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 `;
