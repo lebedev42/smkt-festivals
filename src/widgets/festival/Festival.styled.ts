@@ -312,3 +312,25 @@ export const ResultActions = styled.div`
   flex-direction: column;
   gap: 10px;
 `;
+
+export const ModalContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
+export const ModalText = styled.div`
+  font-family: 'Euclid';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+
+  color: #000000;
+  text-align: center;
+`;
+
+export const ModalActions = styled.div`
+  display: flex;
+  gap: 10px;
+`;

@@ -95,14 +95,7 @@ const Game = () => {
         </Styled.GameWrapper>
       ) : (
         <Welcome type="track" onClick={handleStartGame}>
-          <p>
-            <p>1. Перемещайтесь по карте города и собирайте бонусы</p>
-            <p>2. Избегайте препятствия</p>
-            <p>
-              3. Подъезжайте к точкам с покупателями, чтобы фудтрак стал
-              неуязвимым на некоторое время.
-            </p>
-          </p>
+          <img src="/track-rules.png" alt="" />
         </Welcome>
       )}
     </Styled.Content>

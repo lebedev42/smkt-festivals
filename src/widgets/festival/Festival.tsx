@@ -15,6 +15,7 @@ import { Stage, Person } from '../../pages/festival/Festival';
 import { useFestivalMutation } from '../../entities/festival/api';
 
 import * as Styled from './Festival.styled';
+import { Modal, useModal } from '../../shared/ui/modal/Modal';
 interface FestivalProps {
   stages: Stage[];
   persons: Person[] | null;
@@ -25,6 +26,8 @@ interface FestivalProps {
 
 export const Festival: React.FC<FestivalProps> = (props) => {
   const { stages, persons, setPersons, setStages, onReset } = props;
+
+  const { isVisible, showModal, hideModal } = useModal();
 
   const { useSendFestivalResult } = useFestivalMutation();
 
@@ -202,12 +205,27 @@ export const Festival: React.FC<FestivalProps> = (props) => {
         (stage) => stage.correctPersonId === stage.selectedPerson?.id,
       ).length;
 
-      setResults(correctAmount === 4 ? 'win' : 'loose');
+      setResults(correctAmount >= 4 ? 'win' : 'loose');
     }
   }, [persons]);
 
+  useEffect(() => {
+    showModal();
+  }, []);
+
   return (
     <Styled.Wrapper isSelected={!!selectedStage?.name}>
+      <Modal isVisible={isVisible} hideModal={hideModal}>
+        <Styled.ModalContent>
+          <Styled.ModalText>
+            Нажмите на любой из павильонов фестиваля, чтобы начать игру
+          </Styled.ModalText>
+          <Styled.ModalActions>
+            <Btn label="Понятно" onClick={hideModal} type="red" size="small" />
+          </Styled.ModalActions>
+        </Styled.ModalContent>
+      </Modal>
+
       <Styled.ResultsBackdrop className={clsx({ active: results })} />
       <Styled.CloseBtn>
         <BtnClose onClick={handleCloseGame} />

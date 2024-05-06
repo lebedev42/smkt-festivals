@@ -140,10 +140,14 @@ export const Rules = styled.div`
 
   @media (max-width: 475px) {
     border-radius: 40px;
+    height: 380px;
   }
   @media (max-width: 380px) {
-    height: 220px;
+    height: 340px;
     border-radius: 30px 30px 0 0;
+  }
+  @media (max-width: 320px) {
+    height: 280px;
   }
 `;
 
@@ -184,6 +188,13 @@ export const RulesText = styled.div`
   p {
     margin: 0;
     padding: 0;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: scale(0.9);
   }
 
   @media (max-width: 475px) {

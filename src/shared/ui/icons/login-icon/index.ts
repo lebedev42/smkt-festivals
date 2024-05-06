@@ -1,1 +1,0 @@
-export { LoginIcon } from './LoginIcon';
