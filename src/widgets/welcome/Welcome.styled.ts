@@ -22,14 +22,17 @@ export const Container = styled.div<{ type: string; height: number }>`
   justify-content: center;
   position: relative;
 
-  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 
   border-radius: 40px;
 
   width: 100%;
-  height: ${(props) => props.height}px;
+  /* height: ${(props) => props.height}px; */
+
+  height: 85vh;
+  background-size: cover;
+  /* background-size: contain; */
 
   background-image: ${(props) =>
     props.type === 'festival' ? 'url(/festivalBg.png)' : 'url(/trackBg.svg)'};
