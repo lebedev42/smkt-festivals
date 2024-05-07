@@ -62,19 +62,19 @@ const Game = () => {
               Ваш счёт: <span>{points}</span>
             </Styled.ResultTitle>
             <Styled.ResultDescription>
-              {points >= 150 ? (
+              {points >= 250 ? (
                 <p>
                   Вы классно справились! <br />
                   Вернитесь в чат-бот — поделимся секретным кодом.
                 </p>
               ) : (
                 <p>
-                  Вы почти у цели! Чтобы получить приз, соберите 150 бонусов.
+                  Вы почти у цели! Чтобы получить приз, соберите 250 бонусов.
                 </p>
               )}
             </Styled.ResultDescription>
             <Styled.ResultActions>
-              {points >= 150 ? (
+              {points >= 250 ? (
                 <Btn label="В чат-бот" onClick={handleCloseGame} type="red" />
               ) : (
                 <>

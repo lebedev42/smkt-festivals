@@ -35,7 +35,7 @@ export const Game: React.FC<GameProps> = ({ isTopbar, handleGameFinished }) => {
 
     const resultData = {
       user: '',
-      result: points >= 150,
+      result: points >= 250,
     };
 
     const parsed = queryString.parse(location.search);
