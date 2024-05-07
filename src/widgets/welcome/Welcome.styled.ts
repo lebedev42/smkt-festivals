@@ -35,7 +35,7 @@ export const Container = styled.div<{ type: string; height: number }>`
   /* background-size: contain; */
 
   background-image: ${(props) =>
-    props.type === 'festival' ? 'url(/festivalBg.png)' : 'url(/trackBg.svg)'};
+    props.type === 'festival' ? 'url(/festivalBg.png)' : 'url(/trackBg.png)'};
 
   @media (max-width: 475px) {
     border-radius: 40px;
