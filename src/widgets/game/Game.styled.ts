@@ -80,7 +80,7 @@ export const GameWrapper = styled.div<{
   height: ${({ height }) => height || 718}px;
   margin-bottom: 40px;
 
-  @media (max-width: 360px) {
+  @media (max-width: 380px) {
     margin-bottom: 30px;
   }
 
@@ -172,8 +172,8 @@ export const MovementButtons = styled.div`
     align-items: center;
     justify-content: center;
 
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 15px;
+    margin-bottom: 15px;
   }
 
   .btn {
@@ -184,8 +184,8 @@ export const MovementButtons = styled.div`
 
     cursor: pointer;
 
-    width: 54px;
-    height: 54px;
+    width: 64px;
+    height: 64px;
 
     &.button-up {
       background-image: url('/upBtn.svg');
