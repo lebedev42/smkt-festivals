@@ -152,10 +152,10 @@ export const Persons = styled.div`
   overflow: hidden;
 
   &.disabled {
-    -webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
-    -o-filter: grayscale(100%);
+    -webkit-filter: grayscale(90%);
+    -moz-filter: grayscale(90%);
+    -ms-filter: grayscale(90%);
+    -o-filter: grayscale(90%);
     filter: gray; /* IE 6-9 */
 
     pointer-events: none;
